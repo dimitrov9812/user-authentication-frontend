@@ -12,7 +12,9 @@ const RegisterForm = ({ history }) => {
 
   const registerUser = (event) => {
     event.preventDefault();
-    const URL = "http://localhost:5000/api/user/register"
+    const URL = "http://localhost:5000/api/user/register";
+    const HEROKUURL = "https://u-auth-api.herokuapp.com/api/user/login";
+
     Axios.post(URL, {"name": username, "email": email, "password": password}).then((res) => {
       console.log(res);
       if(res.status === 200) {

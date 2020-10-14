@@ -12,7 +12,9 @@ const LoginForm = ({history}) => {
   const loginUser = (event) => {
     event.preventDefault();
     const URL = "http://localhost:5000/api/user/login"
-    Axios.post(URL, {"email": email, "password": password}).then((res) => {
+    const HEROKUURL = "https://u-auth-api.herokuapp.com/api/user/login";
+
+    Axios.post(HEROKUURL, {"email": email, "password": password}).then((res) => {
       console.log(res);
       if(res.status === 200) {
         history.push("/home");
