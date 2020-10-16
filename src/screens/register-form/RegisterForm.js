@@ -13,29 +13,33 @@ const RegisterForm = ({ history }) => {
   const registerUser = (event) => {
     event.preventDefault();
     const URL = "http://localhost:5000/api/user/register";
-    const HEROKUURL = "https://u-auth-api.herokuapp.com/api/user/login";
+    const HEROKUURL = "https://u-auth-api.herokuapp.com/api/user/register";
 
-    Axios.post(URL, {"name": username, "email": email, "password": password}).then((res) => {
+    Axios.post(HEROKUURL, {"name": username, "email": email, "password": password}).then((res) => {
       console.log(res);
       if(res.status === 200) {
         history.push("/login");
       }
     }).catch((err) => {
+      console.log("Lookre")
+      console.log(err);
+      setError(err.response.data);
       console.log(err.response.data)
-      setError(err.response.data)
     })
   }
 
   return (
-    <div style={{width:300,height:300, alignSelf:'center',marginTop:"15%"}}>
+    <div style={{flexWrap:"wrap",alignSelf:'center'}}>
       <MuiThemeProvider>
         <Card style={{padding:20}}>
-          <div>
+        <img width="300" height="300" src={require("../../images/logo.png")}/>
+          <div style={{padding:20}}>
             <TextField
               hintText="Enter your Username"
               floatingLabelText="Username"
               onChange={(e) => setUsername(e.target.value)}
             />
+            <br />
             <TextField
               hintText="Enter your Email"
               floatingLabelText="Email"

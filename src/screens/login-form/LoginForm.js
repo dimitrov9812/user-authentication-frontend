@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Card, RaisedButton, TextField } from 'material-ui';
 import { MuiThemeProvider } from 'material-ui/styles';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 
 const LoginForm = ({history}) => {
@@ -30,7 +30,9 @@ const LoginForm = ({history}) => {
     <div>
       <MuiThemeProvider>
         <Card>
+        <img width="300" height="300" src={require("../../images/logo.png")}/>
           <div style={{padding:20}}>
+            
             <TextField
               hintText="Enter your Email"
               floatingLabelText="Email"
