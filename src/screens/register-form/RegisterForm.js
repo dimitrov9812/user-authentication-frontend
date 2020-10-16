@@ -40,7 +40,6 @@ const RegisterForm = ({ history }) => {
               onChange={(e) => setUsername(e.target.value)}
             />
             <br />
-            <h3>test</h3>
             <TextField
               hintText="Enter your Email"
               floatingLabelText="Email"
